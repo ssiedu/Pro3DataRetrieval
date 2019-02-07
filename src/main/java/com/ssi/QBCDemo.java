@@ -1,5 +1,6 @@
 package com.ssi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -20,13 +21,21 @@ public class QBCDemo {
 //		cr.addOrder(order2);
 		
 		
-		Criterion crt1=Restrictions.gt("price", 50000);
-		Criterion crt2=Restrictions.eq("pcat", "furniture");
-		Criterion crt3=Restrictions.and(crt1, crt2);
+		//Criterion crt1=Restrictions.gt("price", 50000);
+		//Criterion crt2=Restrictions.eq("pcat", "furniture");
+		//Criterion crt3=Restrictions.and(crt1, crt2);
 		
 		//cr.add(crt1);
 		//cr.add(crt2);
-		cr.add(crt3);
+		//cr.add(crt3);
+		
+		ArrayList<String> list=new ArrayList<String>();
+		list.add("auto"); list.add("books");
+		Criterion crt1=Restrictions.in("pcat", list);
+		cr.add(crt1);
+		
+		Criterion crt2=Restrictions.between("price", 100000, 200000);
+		cr.add(crt2);
 		
 		List<Products> products=cr.list();
 
