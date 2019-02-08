@@ -18,9 +18,9 @@ public class QBCProjectionDemo {
 		
 		Projection p1=Projections.property("pname");
 		Projection p2=Projections.property("price");
-		Projection p3=Projections.property("pdesc");
+		//Projection p3=Projections.property("pdesc");
 		
-		pList.add(p1); pList.add(p2); pList.add(p3);
+		pList.add(p1); pList.add(p2); //pList.add(p3);
 		
 		cr.setProjection(pList);
 		
